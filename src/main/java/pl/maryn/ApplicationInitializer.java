@@ -3,7 +3,7 @@ package pl.maryn;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
-import pl.coderslab.config.AppConfiguration;
+import pl.maryn.config.AppConfiguration;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;

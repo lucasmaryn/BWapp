@@ -24,7 +24,7 @@ public class AppConfiguration {
     @Bean("entityManagerFactory")//kiedy? -> springdata to wykorzystuje
     public LocalEntityManagerFactoryBean entityManagerFactoryBean() {
         LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();
-        emfb.setPersistenceUnitName("exam6PersistenceUnit");
+        emfb.setPersistenceUnitName("wbappPersistenceUnit");
         return emfb;
     }
 
