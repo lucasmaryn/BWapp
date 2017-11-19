@@ -15,5 +15,9 @@
     <schema id="10" parent="1" name="test06"/>
     <schema id="11" parent="1" name="testcms"/>
     <schema id="12" parent="1" name="workshop"/>
+    <schema id="13" parent="1" name="bwa">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
   </database-model>
 </dataSource>

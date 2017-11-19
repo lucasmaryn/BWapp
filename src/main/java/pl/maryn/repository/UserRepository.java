@@ -1,5 +1,8 @@
 package pl.maryn.repository;
 
-public interface UserRepository {//} extends JpaRepository<User,Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import pl.maryn.entity.User;
+
+public interface UserRepository extends JpaRepository<User, Long> {
 
 }
