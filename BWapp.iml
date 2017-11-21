@@ -24,6 +24,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
+          <factory-entry name="bwappPersistenceUnit" />
           <factory-entry name="entityManagerFactoryBean" />
           <factory-entry name="wbappPersistenceUnit" />
         </datasource-mapping>

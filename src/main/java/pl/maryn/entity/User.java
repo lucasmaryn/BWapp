@@ -1,10 +1,12 @@
 package pl.maryn.entity;
 
 import org.hibernate.validator.constraints.Email;
+import pl.maryn.entity.training.Training;
 import pl.maryn.org.mindrot.jbcrypt.BCrypt;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 public class User {
@@ -23,20 +25,46 @@ public class User {
 
     @NotNull
     private String password;
-    private int person_group_id;
+    private int group_id;
+
+    @OneToMany
+    private List<Training> trainings;
 
 
     public User() {
-        this.id = 0;
+
         this.name = "";
         this.email = "";
         this.password = "";
     }
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password, int group_id, List<Training> trainings) {
         this.name = name;
         this.email = email;
-        this.setPassword(password);
+        this.password = password;
+        this.group_id = group_id;
+        this.trainings = trainings;
+    }
+
+    public User(String username, String email, String password, int person_group_id) {
+
+        this.setName(username).setEmail(email).setPassword(password).setGroupId(person_group_id);
+    }
+
+    public int getGroup_id() {
+        return group_id;
+    }
+
+    public void setGroup_id(int group_id) {
+        this.group_id = group_id;
+    }
+
+    public List<Training> getTrainings() {
+        return trainings;
+    }
+
+    public void setTrainings(List<Training> trainings) {
+        this.trainings = trainings;
     }
 
     public Long getId() {
@@ -45,11 +73,6 @@ public class User {
 
     public String getName() {
         return name;
-    }
-
-    public User(String username, String email, String password, int person_group_id) {
-        this.id = 0;
-        this.setName(username).setEmail(email).setPassword(password).setPersonGroupId(person_group_id);
     }
 
     public User setName(String username) {
@@ -75,8 +98,8 @@ public class User {
         return this;
     }
 
-    public User setPersonGroupId(int id) {
-        this.person_group_id = id;
+    public User setGroupId(int id) {
+        this.group_id = id;
         return this;
     }
 
@@ -86,7 +109,9 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", person_group_id=" + person_group_id +
+                ", person_group_id=" + group_id +
                 '}';
     }
+
+
 }

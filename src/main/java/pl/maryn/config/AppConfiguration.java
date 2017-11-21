@@ -1,16 +1,20 @@
 package pl.maryn.config;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import pl.maryn.converter.ExerciseConverter;
 import pl.maryn.repository.UserRepository;
 
 import javax.persistence.EntityManagerFactory;
@@ -20,11 +24,11 @@ import javax.persistence.EntityManagerFactory;
 @EnableWebMvc
 @EnableJpaRepositories(basePackageClasses = UserRepository.class)
 @Configuration
-public class AppConfiguration {
+public class AppConfiguration extends WebMvcConfigurerAdapter {
     @Bean("entityManagerFactory")//kiedy? -> springdata to wykorzystuje
     public LocalEntityManagerFactoryBean entityManagerFactoryBean() {
         LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();
-        emfb.setPersistenceUnitName("wbappPersistenceUnit");
+        emfb.setPersistenceUnitName("bwappPersistenceUnit");
         return emfb;
     }
 
@@ -43,4 +47,16 @@ public class AppConfiguration {
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(getExerciseConverter());
+
+    }
+
+    @Bean
+    public ExerciseConverter getExerciseConverter() {
+        return new ExerciseConverter();
+    }
+
 }
