@@ -2,6 +2,7 @@ package pl.maryn.entity.training;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 
@@ -19,8 +20,20 @@ public class Exercise {
 
     private int rep;
 
-    @ManyToOne
-    private SingleTrainingDay trainingDay;
+    @ManyToMany(mappedBy = "exercises")
+    private List<SingleTrainingDay> singleTrainingDays;
+
+    public List<SingleTrainingDay> getSingleTrainingDays() {
+        return singleTrainingDays;
+    }
+
+    public void setSingleTrainingDays(List<SingleTrainingDay> singleTrainingDays) {
+        this.singleTrainingDays = singleTrainingDays;
+    }
+
+    public String getFullDescription() {
+        return this.name + " " + this.description;
+    }
 
     public Long getId() {
         return id;
@@ -62,13 +75,5 @@ public class Exercise {
         this.rep = rep;
     }
 
-    @Override
-    public String toString() {
-        return "Exercise{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ",\\nsetNumber=" + setNumber +
-                ", rep=" + rep +
-                "\\n\\n}";
-    }
+
 }

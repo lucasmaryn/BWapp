@@ -61,37 +61,29 @@
 
     <div class="starter-template">
 
-    <br>
-        <a href="add">dodaj nowy dzień treningowy</a>
-    <br>
+    <table class="table-bordered">
+        <tr>
+            <th>nazwa</th>
+            <th>opis</th>
 
-        <table class="table-bordered">
+        </tr>
+        <c:forEach items="${exercisesById}" var="exerciseId">
             <tr>
-                <th>Id</th>
-                <th>Numer dnia treningowego</th>
-                <th>Lista ćwiczeń</th>
+
+                <td>${exerciseId.name}</td>
+                <td>${exerciseId.description}</td>
+
 
             </tr>
-
-            <c:forEach items="${singleTrainingDays}" var="singleDay">
-                <tr>
-                    <td>${singleDay.id}</td>
-                    <td>${singleDay.trainingDayNumber}</td>
-                    <td>
-                    <%--<td>${singleDay.exercises}</td>--%>  <%--działa--%>
-
-                    <c:forEach  items="${singleDay.exercises}" var="day">
-                        ${day.name}
-                    </c:forEach>
-                    </td>
+        </c:forEach>
 
 
+    </table>
+    <br>
+    <a href="add">dodaj nowy dzień treningowy</a>
 
-                </tr>
-            </c:forEach>
-
-        </table>
-        <a href="">index</a>
+    <br>
+    <a href="">index</a>
 
     <br>
     </div>

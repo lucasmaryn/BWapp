@@ -16,7 +16,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha
     384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-    <title>exercise list</title>
+    <title>Title</title>
+    <style type="text/css">
+        .error {
+            background-color: red;
+            color: beige;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -53,49 +59,22 @@
     </div>
 </nav>
 
-<h2>.</h2>
-<h2>.</h2>
-    <h2>Dzień treningowy</h2>
+<h2>.</h2><h2>.</h2>
 
-<main role="main" class="container">
+<c:forEach items="${exercisesByDayId}" var="exerciseById">
+    <tr>
+        <td>${exerciseById}</td>
+        <%--<td>${exerciseById.id}</td>--%>
+        <%--<td>${exerciseById.id}</td>--%>
 
-    <div class="starter-template">
+            <%--<td>${singleTrainingDay.trainingDayNumber}</td>--%>
+            <%--<td>${singleTrainingDay.exercises.toString}</td>--%>
 
-    <br>
-        <a href="add">dodaj nowy dzień treningowy</a>
-    <br>
+            <%--<td><a href="edit?id=${singleTrainingDay.id}">Edytuj</a> </td>--%>
+            <%--<td><a href="delete?id=${singleTrainingDay.id}">Usuń</a> </td>--%>
+    </tr>
+</c:forEach>
 
-        <table class="table-bordered">
-            <tr>
-                <th>Id</th>
-                <th>Numer dnia treningowego</th>
-                <th>Lista ćwiczeń</th>
-
-            </tr>
-
-            <c:forEach items="${singleTrainingDays}" var="singleDay">
-                <tr>
-                    <td>${singleDay.id}</td>
-                    <td>${singleDay.trainingDayNumber}</td>
-                    <td>
-                    <%--<td>${singleDay.exercises}</td>--%>  <%--działa--%>
-
-                    <c:forEach  items="${singleDay.exercises}" var="day">
-                        ${day.name}
-                    </c:forEach>
-                    </td>
-
-
-
-                </tr>
-            </c:forEach>
-
-        </table>
-        <a href="">index</a>
-
-    <br>
-    </div>
-</main>
 
 </body>
 </html>

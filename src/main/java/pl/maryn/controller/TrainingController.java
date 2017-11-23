@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.maryn.entity.User;
+import pl.maryn.entity.training.SingleTrainingDay;
 import pl.maryn.entity.training.Training;
 import pl.maryn.repository.SingleTrainingDayRepository;
 import pl.maryn.repository.TrainingRepository;
@@ -81,9 +82,17 @@ public class TrainingController {
 
     //lista dni treningowych
     @ModelAttribute("singleTrainingDayList")
-    public List<User> findAllSingleTrainingDay() {
-        return userRepository.findAll();
+    public List<SingleTrainingDay> findAllSingleTrainingDay() {
+        return singleTrainingDayRepository.findAll();
     }
 
+//    @PostConstruct
+//    public void initTraining() {
+//        Training t1 = new Training();
+//        t1.setName("trening01");
+//        t1.setDescription("Zacznij na czworakach z kolanami uniesionymi " +
+//                "kilka centymetrów nad podłożem. Ręce proste w łokciach rozstaw " +
+//                "na szerokość barków.");
+//    }
 
 }

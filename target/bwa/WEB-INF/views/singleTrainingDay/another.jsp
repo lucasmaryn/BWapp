@@ -68,27 +68,16 @@
         <table class="table-bordered">
             <tr>
                 <th>Id</th>
-                <th>Numer dnia treningowego</th>
-                <th>Lista ćwiczeń</th>
+                <th>ćwiczenie</th>
 
             </tr>
-
-            <c:forEach items="${singleTrainingDays}" var="singleDay">
+            <c:forEach items="${exercisesById}" var="exerciseId">
                 <tr>
-                    <td>${singleDay.id}</td>
-                    <td>${singleDay.trainingDayNumber}</td>
-                    <td>
-                    <%--<td>${singleDay.exercises}</td>--%>  <%--działa--%>
-
-                    <c:forEach  items="${singleDay.exercises}" var="day">
-                        ${day.name}
-                    </c:forEach>
-                    </td>
-
-
-
+                    <td>${exerciseId.id}</td>
+                    <td>${exerciseId.fullDescription}</td>
                 </tr>
             </c:forEach>
+
 
         </table>
         <a href="">index</a>

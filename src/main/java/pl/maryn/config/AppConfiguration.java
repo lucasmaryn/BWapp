@@ -10,6 +10,7 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -19,12 +20,18 @@ import pl.maryn.repository.UserRepository;
 
 import javax.persistence.EntityManagerFactory;
 
-@ComponentScan(basePackages = { "pl.maryn.controller"})
+@ComponentScan(basePackages = {"pl.maryn"})
 @EnableTransactionManagement
 @EnableWebMvc
 @EnableJpaRepositories(basePackageClasses = UserRepository.class)
 @Configuration
 public class AppConfiguration extends WebMvcConfigurerAdapter {
+
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
+
     @Bean("entityManagerFactory")//kiedy? -> springdata to wykorzystuje
     public LocalEntityManagerFactoryBean entityManagerFactoryBean() {
         LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();

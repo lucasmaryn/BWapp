@@ -12,7 +12,7 @@ public class ExerciseConverter implements Converter<String, Exercise> {
 
     @Override
     public Exercise convert(String source) {
-       Exercise group = exerciseRepository.findOne(Long.parseLong(source));
+        Exercise group = exerciseRepository.findById(Long.parseLong(source));
         return group;
     }
 }

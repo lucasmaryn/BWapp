@@ -19,20 +19,31 @@ public class Training {
     private String description;
 
     @OneToMany//(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-    private List<SingleTrainingDay> wholeTraining;
+    private List<SingleTrainingDay> trainingDaysList;
 
     @ManyToOne
     private User user;
+
+//    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+//    private LocalDate created;
 
 
     public Training() {
     }
 
-    public Training(String name, String description, List<SingleTrainingDay> wholeTraining) {
+    public Training(String name, String description, List<SingleTrainingDay> trainingDaysList) {
         this.name = name;
         this.description = description;
-        this.wholeTraining = wholeTraining;
+        this.trainingDaysList = trainingDaysList;
     }
+
+//    public LocalDate getCreated() {
+//        return created;
+//    }
+//
+//    public void setCreated(LocalDate created) {
+//        this.created = created;
+//    }
 
     public long getId() {
         return id;
@@ -58,12 +69,12 @@ public class Training {
         this.description = description;
     }
 
-    public List<SingleTrainingDay> getWholeTraining() {
-        return wholeTraining;
+    public List<SingleTrainingDay> getTrainingDaysList() {
+        return trainingDaysList;
     }
 
-    public void setWholeTraining(List<SingleTrainingDay> wholeTraining) {
-        this.wholeTraining = wholeTraining;
+    public void setTrainingDaysList(List<SingleTrainingDay> trainingDaysList) {
+        this.trainingDaysList = trainingDaysList;
     }
 
     public User getUser() {
@@ -74,10 +85,5 @@ public class Training {
         this.user = user;
     }
 
-    @Override
-    public String toString() {
-        return "Training{" +
-                "wholeTraining=" + wholeTraining +
-                '}';
-    }
+
 }

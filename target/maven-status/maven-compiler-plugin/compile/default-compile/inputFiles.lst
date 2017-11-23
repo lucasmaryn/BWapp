@@ -1,7 +1,10 @@
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\entity\training\Exercise.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\ApplicationInitializer.java
+C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\converter\UserConverter.java
+C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\converter\TrainingConverter.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\org\mindrot\jbcrypt\BCrypt.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\converter\ExerciseConverter.java
+C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\converter\SingleTrainingDayConverter.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\controller\TrainingController.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\entity\User.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\controller\UserController.java

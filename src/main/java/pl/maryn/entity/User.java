@@ -35,7 +35,6 @@ public class User {
 
         this.name = "";
         this.email = "";
-        this.password = "";
     }
 
     public User(String name, String email, String password, int group_id, List<Training> trainings) {
@@ -103,15 +102,7 @@ public class User {
         return this;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", person_group_id=" + group_id +
-                '}';
-    }
+
 
 
 }

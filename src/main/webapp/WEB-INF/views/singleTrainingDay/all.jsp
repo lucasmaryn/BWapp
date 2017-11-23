@@ -4,48 +4,98 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"%>
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha3
+    84-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha
+    384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
     <title>exercise list</title>
 </head>
 <body>
-    <h2>Lista ćwiczeń</h2>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Id użytkownika</th>
-            <th>Dzień treningowy</th>
-            <th>Lista ćwiczeń</th>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="http://localhost:8080/bwa">Home <span class="sr-only">(current)</span></a>
 
-        </tr>
-        <%-- ${model} --%>
-        <c:forEach items="${singleTrainingDays}" var="singleTrainingDay">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ćwiczenia</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="http://localhost:8080/bwa/exercise/add">Dodaj</a>
+                    <a class="dropdown-item" href="http://localhost:8080/bwa/exercise/all">Lista</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dzień treningowy</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="http://localhost:8080/bwa/singleTrainingDay/add">Dodaj</a>
+                    <a class="dropdown-item" href="http://localhost:8080/bwa/singleTrainingDay/all">Lista</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trening</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="http://localhost:8080/bwa/training/add">Dodaj</a>
+                    <a class="dropdown-item" href="http://localhost:8080/bwa/training/all">Lista</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<h2>.</h2>
+<h2>.</h2>
+    <h2>Dzień treningowy</h2>
+
+<main role="main" class="container">
+
+    <div class="starter-template">
+
+    <br>
+        <a href="add">dodaj nowy dzień treningowy</a>
+    <br>
+
+        <table class="table-bordered">
             <tr>
-                <%--<td>${singleTrainingDay.id}</td>--%>
+                <th>Id</th>
+                <th>Numer dnia treningowego</th>
+                <th>Lista ćwiczeń</th>
 
-                <%--<td>${singleTrainingDay.trainingDay}</td>--%>
-                <%--<td>${singleTrainingDay.exercises.toString}</td>--%>
-
-                <%--<td><a href="edit?id=${singleTrainingDay.id}">Edytuj</a> </td>--%>
-                <%--<td><a href="delete?id=${singleTrainingDay.id}">Usuń</a> </td>--%>
             </tr>
-        </c:forEach>
 
-<%--@elvariable id="singleTrainingDay" type="java"--%>
-        <%--<f:form action="add" method="post" modelAttribute="singleTrainingDay">--%>
-        <%--<br>--%>
-            <%--<a href="add?id=${singleTrainingDay.id}">Dodaj ćwiczenie</a>--%>
-        <%--<br>--%>
+            <c:forEach items="${singleTrainingDays}" var="singleDay">
+                <tr>
+                    <td>${singleDay.id}</td>
+                    <td>${singleDay.trainingDayNumber}</td>
+                    <td>
+                    <%--<td>${singleDay.exercises}</td>--%>  <%--działa--%>
 
-        <%--<f:hidden path="id" />--%>
+                    <c:forEach  items="${singleDay.exercises}" var="day">
+                        ${day.name}
+                    </c:forEach>
+                    </td>
 
-    </table>
+
+
+                </tr>
+            </c:forEach>
+
+        </table>
+        <a href="">index</a>
+
     <br>
-    <a href="add">dodaj nowy dzień treningowy</a>
-
-    <br>
-    <a href="">index</a>
-
-    <br>
+    </div>
+</main>
 
 </body>
 </html>

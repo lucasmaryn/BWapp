@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.maryn.entity.training.Exercise;
 import pl.maryn.entity.training.SingleTrainingDay;
 import pl.maryn.repository.ExerciseRepository;
@@ -34,13 +31,15 @@ public class SingleTrainingDayController {
 
     //dodawanie singleTrainingDay
     @PostMapping(path="/singleTrainingDay/add")
-    public String addSingleTrainingDay(@Valid SingleTrainingDay singleTrainingDay, BindingResult bresult) {
+    public String addSingleTrainingDay(@ModelAttribute @Valid SingleTrainingDay singleTrainingDay,
+                                       BindingResult bresult, Model model) {
         if (bresult.hasErrors()) {
             return "singleTrainingDay/add";
         }
         else {
+//
             singleTrainingDayRepository.save(singleTrainingDay);
-            return "redirect:..";
+            return "redirect:all";
         }
     }
 
@@ -60,23 +59,25 @@ public class SingleTrainingDayController {
         }
         else {
             singleTrainingDayRepository.save(singleTrainingDay);
-            return "redirect:..\\";
+            return "redirect:all";
         }
     }
 
     //usuwanie singleTrainingDay
     @GetMapping(path="/singleTrainingDay/delete")
-    public String deleteSingleTrainingDay(@RequestParam(name = "id", required = true) long id) {
+    public String deleteSingleTrainingDay(@RequestParam(name = "id") long id) {
         singleTrainingDayRepository.delete(id);
-        return "redirect:..\\";
+        return "redirect:all";
     }
 
-    //lista dni treningowych
-    @GetMapping("/singleTrainingDay/all")
-    public String showAllSingleTrainingDay(Model model) {
-        List<SingleTrainingDay> singleTrainingDays = singleTrainingDayRepository.findAll();
-        model.addAttribute("singleTrainingDays", singleTrainingDays);
-        return "singleTrainingDay/all";
+    //lista dni treningowych - tylko lista z tabeli singletrainingday
+    @GetMapping("/singleTrainingDay/all") //   > /singleTrainingDay/all
+    public String showAllSingleTrainingDay( Long id,Model model) {
+
+            List<SingleTrainingDay> singleTrainingDays = singleTrainingDayRepository.findAll();
+            model.addAttribute("singleTrainingDays", singleTrainingDays);
+            return "singleTrainingDay/all";
+
     }
 
     //lista ćwiczeń
@@ -84,6 +85,18 @@ public class SingleTrainingDayController {
     public List<Exercise> findAllExercise() {
         return exerciseRepository.findAll();
     }
+
+
+    //lista ćwiczeń wg id dnia treningowego
+    @GetMapping("/showExercises/{id}")
+    public String showExercises(@PathVariable long id,  Model model) {
+        SingleTrainingDay std = singleTrainingDayRepository.findById(id);
+        model.addAttribute("exercisesById", std.getExercises());
+
+
+        return "singleTrainingDay/another";
+    }
+
 
 
 }

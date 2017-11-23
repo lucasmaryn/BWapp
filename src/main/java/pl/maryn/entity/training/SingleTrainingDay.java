@@ -12,17 +12,35 @@ public class SingleTrainingDay {
     @ManyToOne
     private Training training;
 
-    @OneToMany
+    private int trainingDayNumber;
+
+    private String name;
+
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Exercise> exercises;
 
-    private int trainingDay;
-
-    public SingleTrainingDay( List<Exercise> exercises, int trainingDay) {
-        this.exercises = exercises;
-        this.trainingDay = trainingDay;
+    public String getName() {
+        return name;
     }
 
-    public SingleTrainingDay() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getTrainingDayNumber() {
+        return trainingDayNumber;
+    }
+
+    public void setTrainingDayNumber(int trainingDayNumber) {
+        this.trainingDayNumber = trainingDayNumber;
+    }
+
+    public Training getTraining() {
+        return training;
+    }
+
+    public void setTraining(Training training) {
+        this.training = training;
     }
 
     public long getId() {
@@ -41,19 +59,5 @@ public class SingleTrainingDay {
         this.exercises = exercises;
     }
 
-    public int getTrainingDay() {
-        return trainingDay;
-    }
 
-    public void setTrainingDay(int trainingDays) {
-        this.trainingDay = trainingDays;
-    }
-
-    @Override
-    public String toString() {
-        return "SingleTrainingDay{" +
-                "exercises=" + exercises +
-                ", trainingDay=" + trainingDay +
-                "\\n}";
-    }
 }

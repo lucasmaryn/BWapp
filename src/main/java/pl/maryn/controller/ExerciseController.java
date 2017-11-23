@@ -24,6 +24,9 @@ public class ExerciseController {
     @GetMapping("/exercise/add")
     public String showAddFormExercise(Model model) {
         model.addAttribute("exercise", new Exercise());
+
+        List<Exercise> exercises = exerciseRepository.findAll();
+        model.addAttribute("exercises", exercises);
         return "/exercise/add";
     }
 

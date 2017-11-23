@@ -10,9 +10,12 @@ pl\maryn\controller\UserController.class
 pl\maryn\repository\TrainingRepository.class
 pl\maryn\controller\TrainingController.class
 pl\maryn\converter\ExerciseConverter.class
+pl\maryn\converter\SingleTrainingDayConverter.class
+pl\maryn\converter\UserConverter.class
 pl\maryn\entity\UserGroup.class
 pl\maryn\controller\ExerciseController.class
 pl\maryn\org\mindrot\jbcrypt\BCrypt.class
 pl\maryn\repository\ExerciseRepository.class
 pl\maryn\repository\UserRepository.class
 pl\maryn\controller\SingleTrainingDayController.class
+pl\maryn\converter\TrainingConverter.class
