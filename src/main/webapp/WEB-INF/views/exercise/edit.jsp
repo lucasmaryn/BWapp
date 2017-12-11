@@ -21,6 +21,10 @@
             background-color: red;
             color: beige;
         }
+
+         body {
+             padding-top: 70px;
+         }
     </style>
 </head>
 <body>
@@ -61,9 +65,6 @@
 
 
 <main role="main" class="container">
-    <h2>.</h2>
-    <h2>.</h2>
-
     <div class="starter-template">
         <p class="lead">
         <h2>TEST</h2>

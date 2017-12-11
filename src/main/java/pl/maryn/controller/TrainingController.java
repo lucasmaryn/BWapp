@@ -74,13 +74,21 @@ public class TrainingController {
         return "redirect:..";
     }
 
+    //lista treningów
+    @GetMapping("/training/all")
+    public String showAllTraining(Model model) {
+        List<Training> trainingList = trainingRepository.findAll();
+        model.addAttribute("trainingList", trainingList);
+        return "training/all";
+    }
+
     //lista użytkowników
     @ModelAttribute("userList")
     public List<User> findAllUsers() {
         return userRepository.findAll();
     }
 
-    //lista dni treningowych
+    //lista dni treningowych - form
     @ModelAttribute("singleTrainingDayList")
     public List<SingleTrainingDay> findAllSingleTrainingDay() {
         return singleTrainingDayRepository.findAll();
@@ -94,5 +102,6 @@ public class TrainingController {
 //                "kilka centymetrów nad podłożem. Ręce proste w łokciach rozstaw " +
 //                "na szerokość barków.");
 //    }
+
 
 }

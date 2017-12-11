@@ -37,7 +37,6 @@ public class SingleTrainingDayController {
             return "singleTrainingDay/add";
         }
         else {
-//
             singleTrainingDayRepository.save(singleTrainingDay);
             return "redirect:all";
         }

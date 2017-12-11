@@ -21,6 +21,9 @@
             background-color: red;
             color: beige;
         }
+         body {
+             padding-top: 70px;
+         }
     </style>
 </head>
 <body>
@@ -57,34 +60,43 @@
         </ul>
     </div>
 </nav>
+<main role="main" class="container">
 
-<h2>.</h2>
-<%--@elvariable id="exercise" type="java"--%>
-<f:form action="edit" method="post" modelAttribute="exercise"> <%--tutaj zmieniamy metodę, stosownie do widoku--%>
+    <div class="starter-template">
+        <p class="lead">
 
-    <div class="form-group">
-        id użytkownika:
-        <f:input path="userId" class="form-control"/>
-        <f:errors path="userId" cssClass="error"/>
+        <h3>Edycja dnia treningowego</h3>
+        <%--@elvariable id="exercise" type="java"--%>
+        <f:form action="edit" method="post" modelAttribute="exercise"> <%--tutaj zmieniamy metodę, stosownie do widoku--%>
+
+            <%--<div class="form-group">--%>
+                <%--id użytkownika:--%>
+                <%--<f:input path="userId" class="form-control"/>--%>
+                <%--<f:errors path="userId" cssClass="error"/>--%>
+            <%--</div>--%>
+
+            <div class="form-group">
+                Dzień treningowy:
+                <f:input type="number" path="trainingDay" class="form-control"/>
+                <f:errors path="trainingDay" cssClass="error"/>
+            </div>
+
+            <div class="form-group">
+                Lista ćwiczeń:
+                <f:input type="number" path="setNumber" class="form-control"/>
+                <f:errors path="setNumber" cssClass="error"/>
+            </div>
+
+            <f:hidden path="id" />
+
+            <div class="form-group">
+                <input type="submit" value="Zapisz zmiany"/>
+            </div>
+        </f:form>
+        </p>
+
     </div>
+</main>
 
-    <div class="form-group">
-        Dzień treningowy:
-        <f:input type="number" path="trainingDay" class="form-control"/>
-        <f:errors path="trainingDay" cssClass="error"/>
-    </div>
-
-    <div class="form-group">
-        Lista ćwiczeń:
-        <f:input type="number" path="setNumber" class="form-control"/>
-        <f:errors path="setNumber" cssClass="error"/>
-    </div>
-
-    <f:hidden path="id" />
-
-    <div class="form-group">
-        <input type="submit" value="Zapisz zmiany"/>
-    </div>
-</f:form>
 </body>
 </html>

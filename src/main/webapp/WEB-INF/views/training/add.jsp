@@ -22,7 +22,11 @@
             background-color: red;
             color: beige;
         }
+         body {
+             padding-top: 70px;
+         }
     </style>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -61,42 +65,43 @@
 
 
 <main role="main" class="container">
-    <h2>. </h2>
-    <h2>. </h2>
+
     <div class="starter-template">
         <p class="lead">
-<%--@elvariable id="training" type="java"--%>
-<f:form action="add" method="post" modelAttribute="training">
-    <div>
-        <f:errors path="*" cssClass="error"/>
-    </div>
 
-        id użytkownika:
-    <div class="form-group">
-        <f:select path="user" items="${userList}" itemValue="id" itemLabel="name"/><!--wyszukuje metody bez podawania get-->
-    </div>
+        <%--@elvariable id="training" type="java"--%>
+        <f:form action="add" method="post" modelAttribute="training">
+            <div>
+                <f:errors path="*" cssClass="error"/>
+            </div>
 
-    <div class="form-group">
-        Nazwa treningu:
-        <f:input path="name" class="form-control"/>
-    </div>
+                id użytkownika:
+            <div class="form-group">
+                <f:select path="user" items="${userList}" itemValue="id" itemLabel="name"/><!--wyszukuje metody bez podawania get-->
+            </div>
 
-    <div class="form-group">
-        Opis treningu:
-        <f:textarea cols="60" rows="4" path="description" class="form-control"/>
-        <f:errors path="description" cssClass="error" class="form-control"/>
-    </div>
+            <div class="form-group">
+                Nazwa treningu:
+                <f:input path="name" class="form-control"/>
+            </div>
 
-    <div class="form-group">
-        Lista dni treningowych:
-        <f:select path="trainingDaysList" items="${singleTrainingDayList}" itemValue="id" itemLabel="name" class="form-control"/><!--wyszukuje metody bez podawania get-->
-    </div>
+            <div class="form-group">
+                Opis treningu:
+                <f:textarea cols="60" rows="4" path="description" class="form-control"/>
+                <f:errors path="description" cssClass="error" class="form-control"/>
+            </div>
 
-    
-    <div class="form-group">
-        <input type="submit" value="Dodaj trening"/>
-    </div>
-</f:form>
+            <div class="form-group">
+                Lista dni treningowych:
+                <f:select path="trainingDaysList" items="${singleTrainingDayList}" itemValue="id" itemLabel="name" class="form-control"/><!--wyszukuje metody bez podawania get-->
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Dodaj trening"/>
+            </div>
+        </f:form>
+        </p>
 
     </div>
 </main>

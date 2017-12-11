@@ -21,10 +21,9 @@
 
     <title>Title</title>
 
-    <style type="text/css">
-        .error {
-            background-color: red;
-            color: beige;
+    <style>
+        body {
+            padding-top: 70px;
         }
     </style>
 
@@ -65,10 +64,8 @@
 </nav>
 
 
-
 <main role="main" class="container">
-    <h2>.</h2>
-    <h2>.</h2>
+
     <div class="starter-template">
         <p class="lead">
 
@@ -104,30 +101,6 @@
         </div>
         </f:form>
         </p>
-
-        <table class="table-bordered">
-            <tr>
-                <th>Id</th>
-                <th>Nazwa ćwiczenia</th>
-                <th>Opis wykonania</th>
-                <th>Liczba serii</th>
-                <th>Sugerowane powtórzenia</th>
-
-            </tr>
-            <c:forEach items="${exercises}" var="exercise">
-                <tr>
-                    <td>${exercise.id}</td>
-                    <td>${exercise.name}</td>
-                    <td>${exercise.description}</td>
-                    <td>${exercise.setNumber}</td>
-                    <td>${exercise.rep}</td>
-
-                    <td><a href="edit?id=${exercise.id}">Edytuj</a> </td>
-                    <td><a href="delete?id=${exercise.id}">Usuń</a> </td>
-                </tr>
-            </c:forEach>
-        </table>
-
 
     </div>
 

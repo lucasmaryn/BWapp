@@ -17,8 +17,14 @@
     384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
     <title>exercise list</title>
+    <style>
+        body {
+            padding-top: 70px;
+        }
+    </style>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -53,22 +59,17 @@
     </div>
 </nav>
 
-<h2>.</h2>
-<h2>.</h2>
-    <h2>Dzień treningowy</h2>
+
 
 <main role="main" class="container">
 
     <div class="starter-template">
-
-    <br>
-        <a href="add">dodaj nowy dzień treningowy</a>
-    <br>
+        <h3>Lista dni treningowych</h3>
 
         <table class="table-bordered">
             <tr>
                 <th>Id</th>
-                <th>Numer dnia treningowego</th>
+                <%--<th>Numer dnia treningowego</th>--%>
                 <th>Lista ćwiczeń</th>
 
             </tr>
@@ -76,22 +77,17 @@
             <c:forEach items="${singleTrainingDays}" var="singleDay">
                 <tr>
                     <td>${singleDay.id}</td>
-                    <td>${singleDay.trainingDayNumber}</td>
-                    <td>
-                    <%--<td>${singleDay.exercises}</td>--%>  <%--działa--%>
+                    <%--<td>${singleDay.trainingDayNumber}</td>--%>
 
+                    <td>
                     <c:forEach  items="${singleDay.exercises}" var="day">
                         ${day.name}
                     </c:forEach>
                     </td>
-
-
-
                 </tr>
             </c:forEach>
 
         </table>
-        <a href="">index</a>
 
     <br>
     </div>

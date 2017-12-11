@@ -17,10 +17,9 @@
     384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
     <title>Title</title>
-    <style type="text/css">
-        .error {
-            background-color: red;
-            color: beige;
+    <style>
+        body {
+            padding-top: 70px;
         }
     </style>
 </head>
@@ -60,39 +59,39 @@
 </nav>
 
 <main role="main" class="container">
-    <h2>. </h2>
-    <h2>. </h2>
-    <h3>Dodawanie dnia treningowego</h3>
+
     <div class="starter-template">
+        <h3>Dodawanie dnia treningowego</h3>
         <p class="lead">
-<%--@elvariable id="singleTrainingDay" type="java"--%>
-<f:form action="add" method="post" modelAttribute="singleTrainingDay" >
-    <div>
-        <f:errors path="*" cssClass="error"/>
-    </div>
 
-    <div class="form-group">
-        Nazwa :
-        <f:input path="name" class="form-control"/>
-        <f:errors path="name" cssClass="error"/>
-    </div>
+        <%--@elvariable id="singleTrainingDay" type="java"--%>
+        <f:form action="add" method="post" modelAttribute="singleTrainingDay" >
+            <div>
+                <f:errors path="*" cssClass="error"/>
+            </div>
 
-    <div class="form-group">
-        Numer dnia :
-        <f:input type="number" path="trainingDayNumber" class="form-control"/>
-        <f:errors path="trainingDayNumber" cssClass="error"/>
-    </div>
+            <div class="form-group">
+                Nazwa :
+                <f:input path="name" class="form-control"/>
+                <f:errors path="name" cssClass="error"/>
+            </div>
 
-    <div class="form-group">
-        Lista ćwiczeń:
-        <f:select path="exercises" items="${exerciseList}" itemValue="id" itemLabel="name" class="form-control"/>
-        <f:errors path="exercises" cssClass="error"/>
-    </div>
+            <div class="form-group">
+                Numer dnia :
+                <f:input type="number" path="trainingDayNumber" class="form-control"/>
+                <f:errors path="trainingDayNumber" cssClass="error"/>
+            </div>
 
-    <div class="form-group">
-        <input type="submit" value="Dodaj dzień treningowy"/>
-    </div>
-</f:form>
+            <div class="form-group">
+                Lista ćwiczeń:
+                <f:select path="exercises" items="${exerciseList}" itemValue="id" itemLabel="name" class="form-control"/>
+                <f:errors path="exercises" cssClass="error"/>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Dodaj dzień treningowy"/>
+            </div>
+        </f:form>
 
 
     </div>

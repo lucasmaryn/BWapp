@@ -16,6 +16,11 @@
     384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
     <title>exercise list</title>
+    <style>
+        body {
+            padding-top: 70px;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -56,38 +61,34 @@
 
         <div class="starter-template">
             <p class="lead">
-            <h2>.</h2>
-            <h2>.</h2>
-
-
 
             <h2>Lista ćwiczeń</h2>
-    <%--spring01hibernate--%>
-    <table class="table-bordered">
-        <tr>
-            <th>Id</th>
-            <th>Nazwa ćwiczenia</th>
-            <th>Opis wykonania</th>
-            <th>Liczba serii</th>
-            <th>Sugerowane powtórzenia</th>
 
-        </tr>
-        <%-- ${model} --%>
-        <c:forEach items="${exercises}" var="exercise">
-            <tr>
-                <td>${exercise.id}</td>
-                <td>${exercise.name}</td>
-                <td>${exercise.description}</td>
-                <td>${exercise.setNumber}</td>
-                <td>${exercise.rep}</td>
+            <table class="table-bordered">
+                <tr>
+                    <th>Id</th>
+                    <th>Nazwa ćwiczenia</th>
+                    <th>Opis wykonania</th>
+                    <th>Liczba serii</th>
+                    <th>Sugerowane powtórzenia</th>
 
-                <td><a href="edit?id=${exercise.id}">Edytuj</a> </td>
-                <td><a href="delete?id=${exercise.id}">Usuń</a> </td>
 
-            </tr>
-        </c:forEach>
-    </table>
+                </tr>
 
+                <c:forEach items="${exercises}" var="exercise">
+                    <tr>
+                        <td>${exercise.id}</td>
+                        <td>${exercise.name}</td>
+                        <td>${exercise.description}</td>
+                        <td>${exercise.setNumber}</td>
+                        <td>${exercise.rep}</td>
+
+                        <td><a href="edit?id=${exercise.id}">Edytuj</a> </td>
+                        <td><a href="delete?id=${exercise.id}">Usuń</a> </td>
+
+                    </tr>
+                </c:forEach>
+            </table>
 
             </p>
         </div>

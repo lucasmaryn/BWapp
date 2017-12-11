@@ -1,3 +1,4 @@
+C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\controller\CommentController.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\entity\training\Exercise.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\ApplicationInitializer.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\converter\UserConverter.java
@@ -13,9 +14,11 @@ C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\controller\HomeContr
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\controller\ExerciseController.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\controller\SingleTrainingDayController.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\repository\SingleTrainingDayRepository.java
+C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\entity\Comment.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\entity\training\Training.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\config\AppConfiguration.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\repository\UserRepository.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\entity\training\SingleTrainingDay.java
+C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\repository\CommentRepository.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\repository\ExerciseRepository.java
 C:\Users\Veronion\IdeaProjects\BWapp\src\main\java\pl\maryn\entity\UserGroup.java

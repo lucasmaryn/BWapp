@@ -1,7 +1,6 @@
-<%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"%>
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -15,18 +14,12 @@
     84-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha
     384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
-    <title>Title</title>
-    <style type="text/css">
-        .error {
-            background-color: red;
-            color: beige;
-        }
-         body {
-             padding-top: 70px;
-         }
-    </style>
-
+    <style>
+    body {
+        padding-top: 70px;
+    }
+</style>
+    <title>exercise list</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -63,48 +56,39 @@
     </div>
 </nav>
 
+    <main role="main" class="container">
 
-<main role="main" class="container">
+        <div class="starter-template">
+            <p class="lead">
 
-    <div class="starter-template">
-        <p class="lead">
+            <h3>Lista treningów</h3>
 
-        <%--@elvariable id="training" type="java"--%>
-        <f:form action="add" method="post" modelAttribute="training">
-            <div>
-                <f:errors path="*" cssClass="error"/>
-            </div>
+            <table class="table-bordered">
+                <tr>
+                    <th>Id</th>
+                    <th>Nazwa treningu</th>
+                    <th>Opis</th>
+                    <th>Użytkownik</th>
 
-                id użytkownika:
-            <div class="form-group">
-                <f:select path="user" items="${userList}" itemValue="id" itemLabel="name"/><!--wyszukuje metody bez podawania get-->
-            </div>
-
-            <div class="form-group">
-                Nazwa treningu:
-                <f:input path="name" class="form-control"/>
-            </div>
-
-            <div class="form-group">
-                Opis treningu:
-                <f:textarea cols="60" rows="4" path="description" class="form-control"/>
-                <f:errors path="description" cssClass="error" class="form-control"/>
-            </div>
-
-            <div class="form-group">
-                Lista dni treningowych:
-                <f:select path="trainingDaysList" items="${singleTrainingDayList}" itemValue="id" itemLabel="name" class="form-control"/><!--wyszukuje metody bez podawania get-->
-            </div>
+                </tr>
+                <%-- ${model} --%>
+                <c:forEach items="${trainingList}" var="training">
+                    <tr>
+                        <td>${training.id}</td>
+                        <td>${training.name}</td>
+                        <td>${training.description}</td>
+                        <td>${training.user.name}</td>
 
 
-            <div class="form-group">
-                <input type="submit" value="Dodaj trening"/>
-            </div>
-        </f:form>
-        </p>
+                    </tr>
+                </c:forEach>
 
-    </div>
-</main>
+            </table>
+
+            </p>
+        </div>
+
+    </main>
 
 </body>
 </html>

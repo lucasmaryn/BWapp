@@ -16,6 +16,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import pl.maryn.converter.ExerciseConverter;
+import pl.maryn.converter.SingleTrainingDayConverter;
+import pl.maryn.converter.TrainingConverter;
+import pl.maryn.converter.UserConverter;
 import pl.maryn.repository.UserRepository;
 
 import javax.persistence.EntityManagerFactory;
@@ -58,6 +61,9 @@ public class AppConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(getExerciseConverter());
+        registry.addConverter(getSingleTrainingDayConverter());
+        registry.addConverter(getUserConverter());
+        registry.addConverter(getTrainingConverter());
 
     }
 
@@ -65,5 +71,21 @@ public class AppConfiguration extends WebMvcConfigurerAdapter {
     public ExerciseConverter getExerciseConverter() {
         return new ExerciseConverter();
     }
+
+    @Bean
+    public SingleTrainingDayConverter getSingleTrainingDayConverter() {
+        return new SingleTrainingDayConverter();
+    }
+
+    @Bean
+    public UserConverter getUserConverter() {
+        return new UserConverter();
+    }
+
+    @Bean
+    public TrainingConverter getTrainingConverter() {
+        return new TrainingConverter();
+    }
+
 
 }

@@ -1,7 +1,9 @@
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"%>
+
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -16,15 +18,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha
     384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
+
     <title>Title</title>
+
     <style type="text/css">
         .error {
             background-color: red;
             color: beige;
         }
-         body {
-             padding-top: 70px;
-         }
     </style>
 
 </head>
@@ -64,47 +65,76 @@
 </nav>
 
 
-<main role="main" class="container">
 
+<main role="main" class="container">
+    <h2>.</h2>
+    <h2>.</h2>
     <div class="starter-template">
         <p class="lead">
 
-        <%--@elvariable id="training" type="java"--%>
-        <f:form action="add" method="post" modelAttribute="training">
-            <div>
-                <f:errors path="*" cssClass="error"/>
-            </div>
+            <%--@elvariable id="comment" type="java"--%>
+            <f:form action="add" method="post" modelAttribute="comment">
 
-                id użytkownika:
-            <div class="form-group">
-                <f:select path="user" items="${userList}" itemValue="id" itemLabel="name"/><!--wyszukuje metody bez podawania get-->
-            </div>
+        <div class="form-group">
+            Nazwa ćwiczenia:
+            <f:input path="name" class="form-control"/>
+            <f:errors path="name" cssClass="error"/>
+        </div>
 
-            <div class="form-group">
-                Nazwa treningu:
-                <f:input path="name" class="form-control"/>
-            </div>
+        <div class="form-group">
+            Komentarz:
+            <f:textarea cols="60" rows="4" path="description" class="form-control"/>
+            <f:errors path="description" cssClass="error"/>
+        </div class="form-group">
 
-            <div class="form-group">
-                Opis treningu:
-                <f:textarea cols="60" rows="4" path="description" class="form-control"/>
-                <f:errors path="description" cssClass="error" class="form-control"/>
-            </div>
+        <div class="form-group">
+            Liczba serii:
+            <f:input type="number" path="setNumber" class="form-control"/>
+            <f:errors path="setNumber" cssClass="error"/>
+        </div>
 
-            <div class="form-group">
-                Lista dni treningowych:
-                <f:select path="trainingDaysList" items="${singleTrainingDayList}" itemValue="id" itemLabel="name" class="form-control"/><!--wyszukuje metody bez podawania get-->
-            </div>
+        <div class="form-group">
+            Sugerowane powtórzenia:
+            <f:input type="number" path="rep" class="form-control"/>
+            <f:errors path="rep" cssClass="error"/>
+        </div>
 
-
-            <div class="form-group">
-                <input type="submit" value="Dodaj trening"/>
-            </div>
+        <div>
+            <input type="submit" value="Dodaj ćwiczenie"/>
+        </div>
         </f:form>
         </p>
 
+        <table class="table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Nazwa ćwiczenia</th>
+                <th>Opis wykonania</th>
+                <th>Liczba serii</th>
+                <th>Sugerowane powtórzenia</th>
+
+            </tr>
+            <c:forEach items="${exercises}" var="exercise">
+                <tr>
+                    <td>${exercise.id}</td>
+                    <td>${exercise.name}</td>
+                    <td>${exercise.description}</td>
+                    <td>${exercise.setNumber}</td>
+                    <td>${exercise.rep}</td>
+
+                    <td><a href="edit?id=${exercise.id}">Edytuj</a> </td>
+                    <td><a href="delete?id=${exercise.id}">Usuń</a> </td>
+                </tr>
+            </c:forEach>
+        </table>
+
+
     </div>
+
 </main>
+
+
+
 
 </body>
 </html>

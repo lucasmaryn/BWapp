@@ -16,7 +16,11 @@
     84-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha
     384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
+    <style>
+        body {
+            padding-top: 70px;
+        }
+    </style>
 
     <title>Homepage</title>
 </head>
@@ -30,7 +34,7 @@
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ćwiczenia</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <div class= "dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="http://localhost:8080/bwa/exercise/add">Dodaj</a>
                     <a class="dropdown-item" href="http://localhost:8080/bwa/exercise/all">Lista</a>
                 </div>
@@ -56,11 +60,29 @@
 </nav>
 
 <main role="main" class="container">
-    <h2>.</h2>
     <div class="starter-template">
         <p class="lead">
-<h2>TEST</h2>
+            Aplikacja, która ma na celu ułożenie idealnego planu treningowego przez użytkowników.
+        </p>
+        <p>
+            Serwis umożliwia:
+        <ul>
+            <li>dodanie edycję i usunięcie ćwiczeń, wyświetlenie listy ćwiczeń</li>
+            <li>dodanie dni treningowych w oparciu o utworzone ćwiczenia</li>
+            <li>dodanie treningów w oparciu o utworzone dni treningowe</li>
+        </ul>
 
+        </p>
+        <p>
+            W planach:
+        <ul>
+            <li>dodanie możliwości komentowania ćwiczeń, dni treningowych oraz treningów</li>
+            <li>wyświetlanie listy komentarzy danego użytkownika</li>
+            <li>rejestracja i logowanie użytkownika</li>
+            <li>wyświetlanie listy komentarzy danego użytkownika</li>
+            <li>możliwość edycji i usunięcia komentarzy przez ich twórcę</li>
+            <li>wyświetlenie dni treningowych oraz treningów stworzonych przez użytkownika</li>
+        </ul>
         </p>
     </div>
 
